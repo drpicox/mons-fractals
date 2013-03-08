@@ -1,0 +1,671 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Manual d'usuari</title>
+</head>
+
+<body background="estrellas.jpg" bgcolor="#000000" text="#C0C0C0"
+link="#FF0000" vlink="#FF00FF" alink="#00FF00">
+
+<h1 align="center"><a name="Inici"></a>Pràctica d'MGC</h1>
+
+<h1 align="center">Manual d'usuari de l'aplicació</h1>
+
+<ul>
+    <li><h2><a href="#Instalacio">Instalació de l'aplicació</a></h2>
+    </li>
+    <li><h2><a href="#Execucio">Execució</a></h2>
+    </li>
+    <li><h2><a href="#FormatsExportacio">Formats d'exportació</a></h2>
+    </li>
+    <li><h2><a href="#Filtres">Filtres</a></h2>
+    </li>
+    <li><h2><a href="#EntornGrafic">Ús de l'entorn gràfic</a></h2>
+    </li>
+    <li><h2><a href="#DescripcioFiltres">Descripcio dels Filtres</a></h2>
+    </li>
+</ul>
+
+<p align="right"><a href="index2.html"><img src="home01.gif"
+border="0" width="40" height="40"></a></p>
+
+<hr>
+
+<h2><a name="Instalacio"></a>Instalació de l'aplicació</h2>
+
+<p>La instal·lació de l'aplicació és un proces molt senzill.
+Primerament cal obtenir el fitxer que conté el programa
+comprimit, que serà un fitxer amb extensió .jar, i afegir-lo a
+la variable d'entorn CLASSPATH. En MS-DOS, això últim es faria
+amb la següent comanda:</p>
+
+<dl>
+    <dd><pre>&gt;set CLASSPATH=mgc.jar;%CLASSPATH%</pre>
+    </dd>
+</dl>
+
+<p>Ara l'aplicació ja està instal·lada i disponible per a la
+seva execució.</p>
+
+<p align="right"><a href="#Inici"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></p>
+
+<hr>
+
+<h2><a name="Execucio"></a>Execució</h2>
+
+<p>Per a poder executar l'aplicació necessitem tenir instal·lada
+alguna versió d'una Màquina Virtual Java. Tant ens pot servir
+una versió de desenvolupament, com el JDK; com un entorn
+d'execució, com el JRE.</p>
+
+<p>Quan ho tenim tot instal·lat, tant la Màquina Virtual Java
+com la nostra aplicació, es pot llençar la seva execució amb
+la comanda:</p>
+
+<blockquote>
+    <pre>&gt;java mgc.mf.MonsFractals</pre>
+</blockquote>
+
+<p>Si tenim algun problema per falta de memoria en l'execució de
+l'aplicació podem demanar a la màquina virtual que en dediqui més
+de la que habitualment assigna. Això es depenent de la Màquina
+Virtual Java que executem, i en el cas de la Màquina Virtual
+Java distribuida amb el JDK 1.1.8 per MS-DOS, la comanda seria la
+seguent:</p>
+
+<blockquote>
+    <pre>&gt;java -ms64000000 -mx450000000 mgc.mf.MonsFractals</pre>
+</blockquote>
+
+<p>Amb aquesta comanda estariem aconseguint que la Maquina
+Virtual Java assignés, de bones a primeres, 64 milions de bytes
+en memòria, i que com a màxim li permetes demanar fins a 450
+milions de bytes. Aquests valors es poden variar d'acord amb les
+necessitats de l'usuari.</p>
+
+<p align="right"><a href="#Inici"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></p>
+
+<hr>
+
+<h2><a name="FormatsExportacio"></a>Formats d'exportació</h2>
+
+<p>L'aplicació permet exportar els objectes generats a algun
+tipus de format extern a l'aplicació. La nostra implementació
+permet exportar a dos llenguatges diferents: VRML i BDG.</p>
+
+<h3>VRML</h3>
+
+<p>Aquest format es utilitzat per molts navegadors i està format
+per fitxers textuals que descriuen el mon. Pots trobat més
+informació sobre aquest llenguatge de descripció de mons en <a
+href="http://www.web3D.org">www.web3D.org</a>, i en <a
+href="http://www.cai.com/cosmo">www.cai.com/cosmo</a> pots trobat
+un navegador per a mons creats en aquest llenguatge.</p>
+
+<h3>BDG</h3>
+
+<p>Aquest és el format que s'utilitza a les assignatures de <a
+href="http://www.lsi.upc.es/~qualitat">gràfics</a> de la <a
+href="http://www.fib.upc.es">facultat</a>.</p>
+
+<p align="right"><a href="#Inici"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></p>
+
+<hr>
+
+<h2><a name="Filtres"></a>Filtres</h2>
+
+<p>Un filtre és la unitat bàsica de construcció i modificació
+d'objectes. És poden utilitzar per a crear nous objectes i per a
+modificar-los, tant en forma com en color i textura; agrupar
+objectes i fer, en definitiva, qualsevol manipulació que ens
+acosti a la consecució dels nostres objectius en quant al
+modelat del planeta.</p>
+
+<p>Els filtres tenen un ordre d'aplicació, que es pot modificar
+mitjançant la interficie del programa, i que permet anar
+refinant les manipulacións fins arribar a l'objecte final.</p>
+
+<p>Un exemple de filtre podria ser el que ens crea un icosaedre,
+o el que ens fractalitza un objecte. Una llista de filtres podria
+estar composada, per exemple, per:</p>
+
+<ul>
+    <li>Crear icosaedre</li>
+    <li>Fractalitzar</li>
+    <li>Calcular temperatures</li>
+    <li>Acolorir per temperatures</li>
+    <li>Afegir un mar</li>
+</ul>
+
+<p>I amb aquest ordre, doncs un ordre diferent ens donaria
+resultats diferents.</p>
+
+<p>Cada filtre te associats uns paràmetres que modifiquen el seu
+comportament, i els que depenen d'algun factor aleatori també
+tenen una llavor que permet que sempre que recreem un objecte,
+aquest quedi igual.</p>
+
+<p align="right"><a href="#Inici"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></p>
+
+<hr>
+
+<h2><a name="EntornGrafic"></a>Ús de l'entorn gràfic</h2>
+
+<p>L'entorn gràfic està dividit en diversos apartats:</p>
+
+<ul>
+    <li>Menus</li>
+    <li>Barra d'estat</li>
+    <li>Botons</li>
+    <li>Llista de filtres</li>
+    <li>Parametres dels filtres</li>
+</ul>
+
+<h3>Menus</h3>
+
+<p><img src="menu.jpg"
+alt="Ventana de la aplicación con un menú abierto" width="497"
+height="392"></p>
+
+<p>L'aplicació te un sol menú, que es diu <em>Fitxer</em> i
+conté les funcions més bàsiques de l'aplicació:</p>
+
+<dl>
+    <dt><strong>Nou</strong></dt>
+    <dd>Neteja la <a href="#LlistaFiltres">llista de filtres</a>.</dd>
+    <dt>&nbsp;</dt>
+    <dt><strong>Obrir...</strong></dt>
+    <dd>Mostra un quadre de dialeg per a que l'usuari pugui
+        recuperar un fitxer on s'ha guardat una <a
+        href="#LlistaFiltres">llista de filtres</a>.</dd>
+    <dt>&nbsp;</dt>
+    <dt><strong>Salvar...</strong></dt>
+    <dd>Mostra un quadre de dialeg per a que l'usuari pugui
+        guardar en disc una <a href="#LlistaFiltres">llista de
+        filtres</a>.</dd>
+    <dt>&nbsp;</dt>
+    <dt><strong>Exportar</strong></dt>
+    <dd>Presenta una llista dels <a href="#FormatsExportacio">formats</a>
+        disponibles per a guardar l'objecte generat. Quan es
+        selecciona algun dels presentats (VRML o BDG) presenta a
+        l'usuari un quadre de dialeg per introduïr el nom del
+        fitxer on vol guardar l'objecte.</dd>
+    <dt>&nbsp;</dt>
+    <dt><strong>Sortir</strong></dt>
+    <dd>Surt de l'aplicació.</dd>
+</dl>
+
+<h3>Barra d'estat</h3>
+
+<p>És la zona corresponent a la part inferior de la finestra.
+Mostra tot el que està succeïnt a l'aplicació i indica a
+l'usuari en quina part del procés està treballant.</p>
+
+<h3>Botons</h3>
+
+<p><img src="pantalla1.jpg" width="497" height="405"></p>
+
+<p>Tenim cinc botons disponibles a la interficie:</p>
+
+<dl>
+    <dt><strong>Regenerar</strong></dt>
+    <dd>Crea un nou objecte a partir de la llista de filtres</dd>
+    <dt><strong>Afegir</strong></dt>
+    <dd>Obre una finestra amb un llistat de filtres, i afegeix el
+        filtre seleccionat.</dd>
+</dl>
+
+<blockquote>
+    <blockquote>
+        <p><img src="filtres.jpg" width="223" height="299"></p>
+    </blockquote>
+</blockquote>
+
+<dl>
+    <dt><strong>Esborrar</strong></dt>
+    <dd>Esborra el filtre seleccionat de la llista de filtres.</dd>
+    <dt><strong>Adalt</strong></dt>
+    <dd>Canvia l'ordre d'aplicacio de filtres, avançant en un el
+        filtre seleccionat.</dd>
+    <dt><strong>Abaix</strong></dt>
+    <dd>Canvia l'ordre d'aplicacio de filtres, endarrerint en un
+        el filtre seleccionat.</dd>
+</dl>
+
+<h3><a name="LlistaFiltres"></a>Llista de <a href="#Filtres">filtres</a></h3>
+
+<p><img src="pantalla2.jpg" width="497" height="390"></p>
+
+<p>La llista de filtres es la part que es veu a l'esquerra de la
+imatge. Conté tots els filtres que s'han d'aplicar a l'objecte i
+manté l'ordre en el que s'aplicaran: de dalt cap a baix.</p>
+
+<p>La part de la dreta són els <a href="#ParametresFiltre">paràmetres
+dels filtres</a>.</p>
+
+<h3><a name="ParametresFiltre"></a>Parametres dels <a
+href="#Filtres">filtres</a></h3>
+
+<p>Cadascun dels filtres te una serie de paràmetres diferents
+que es representen a la part dreta de la finestra. Aquests paràmetres
+es poden modificar a gust de l'usuari fins aconseguir un resultat
+satisfactori.</p>
+
+<p>&nbsp;</p>
+
+<p align="right"><a href="#Inici"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></p>
+
+<hr>
+
+<h2><a name="DescripcioFiltres"></a>Descripcio de filtres</h2>
+
+<ul>
+    <li><a href="#FiltreAgrupar">Agrupar</a></li>
+    <li><a href="#FiltreObjecteCub">ObjecteCub</a></li>
+    <li><a href="#FiltreObjecteEsfera">ObjecteEsfera</a></li>
+    <li><a href="#FiltreObjecteIsocaedre">ObjecteIcosaedre</a></li>
+    <li><a href="#FiltreFractalRadialTexturat">FractalRadialTexturat</a></li>
+    <li><a href="#FiltreMar">Mar</a></li>
+    <li><a href="#FiltreRadiMinim">RadiMinim</a></li>
+    <li><a href="#FiltreRadiMaxim">RadiMaxim</a></li>
+    <li><a href="#FiltreTexturaAleatoria">TexturaAleatoria</a></li>
+    <li><a href="#FiltreTexturaTemperatura">TexturaTemperatura</a></li>
+    <li><a href="#FiltrePosarTemperatura">PosarTemperatura</a></li>
+    <li><a href="#FiltreTraslacio">Traslacio</a></li>
+    <li><a href="#FiltrePosarGrisosTemperatura">PosarGrisosTemperatura</a></li>
+    <li><a href="#FiltrePosarGrisosTipusSuperficie">PosarGrisosTipusSuperficie</a></li>
+    <li><a href="#FiltreAfegirAnells">AfegirAnells</a></li>
+</ul>
+
+<p align="right"><a href="#Inici"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></p>
+
+<h3><a name="FiltreAgrupar"></a>Agrupar</h3>
+
+<p>Aquest fltre permet fer descripcions de l'univers mes
+complexes. Arrela del fet que es pot incloure una <a
+href="#LlistaFiltres">llista de filtres</a> dintre de la mateixa
+llista que s'esta editant. La idea es crear un objecte de forma
+independent a la resta (fins i tot es pot obrir i desar) i
+despres agrupar-ho (agrupa sense fer l'operacio booleana de unio)
+per afegir complexitat a l'escena.</p>
+
+<p>Al afegir aquest filtre, s'obre una copia de la finestra de
+creacio d'aquest filtre, aquesta finestra es tanca al seleccionar
+un altre filtre i es torna a obrir quan es selecciona el
+d'agrupar.</p>
+
+<p>Es molt important traslladar els objectes afegits abans
+d'agrupar, de no ser aixi es corre el risc de sobreposar objectes.</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltreObjecteCub"></a>ObjecteCub</h3>
+
+<p>Aquest es un dels filtres de creacio d'objecte. Aquest filtre
+ignora tot el que s'havia fet fins ara i crea un objecte que es
+un cub. El cub te amplada dos, alçada dos, i profunditat 2. Esta
+centrat en l'eix de coordenades.</p>
+
+<p>L'objecte cub pot donar molt bons resultats per generar
+metoirits.</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltreObjecteEsfera"></a>ObjecteEsfera</h3>
+
+<p>Aquest es un dels filtres de creacio d'objecte. Aquest filtre
+ignora tot el que s'havia fet fins ara i crea un objecte que es
+una esfera. L'esfera es pot parametritzar en la seva creacio, cal
+avisar que es una aproximacio de l'esfera, i no es una esfera
+perfecte. Les cares d'aquestes son cuadrades i estan dividides
+longitudinalment. </p>
+
+<p>Parametres:</p>
+
+<ul>
+    <li>radi: radi de l'esfera aproximada</li>
+    <li>divisions longitut: numero de divisions que es fa al
+        voltant de l'eix x. Contra mes gran el numero de
+        divisions mes resolució y mes s'acostara a una esfera
+        perfecte, el minim de divisions que pot tenir es 3.</li>
+    <li>divisions latitut: numero de divisions desde l'equador
+        fins al pol, s'aconsella que sigui la meitat que
+        divisions longitudinals. Contra mes gran el numero de
+        divisions mes resolució y mes s'acostara a una esfera
+        perfecte, el minim de divisions que pot tenir es 3.</li>
+</ul>
+
+<p>L'objecte esfera va be per generar planetes de tot tipus, tot
+i que cal tenir en compte que contra mes divisions mes illes
+sueltes generara, tot i que si es fractalitza amb un grau elevat
+de dimensio fractal (al voltant de 0.9) pot simular uns nuvols
+estupendos.</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltreObjecteIsocaedre"></a>ObjecteIcosaedre</h3>
+
+<p>Aquest es un dels filtres de creacio d'objecte. Aquest filtre
+ignora tot el que s'havia fet fins ara i crea un objecte que es
+un icosaedre. L'icosaedre es un poliedre regular de 20 cares,
+totes triangles equilaters</p>
+
+<p>Parametres:</p>
+
+<ul>
+    <li>radi: radi de l'esfera que conte l'icosaedre.</li>
+</ul>
+
+<p>L'icosaedre es perfecte per generar tot tipus de planetes.
+Tambe es pot utilitzar per fer una esfera triangulada, per ferla
+seria anar aplicant Fractalitzar (amb dimensio fractal 0) i radi
+minim al del icosaedre.</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltreFractalRadialTexturat"></a>FractalRadialTexturat</h3>
+
+<p>Aquest filtre fractalitza l'objecte. Al modificarho
+subdivideix aquest en moltes parts creant una nova versio
+d'aquest pero mes irregular. Les irregularitats responen a un
+patro fractal. En aquest cas la textura de l'objecte tambe
+s'edita, no el modifica directament, pero si cambia un parametre
+anomenat tipus superficio de forma fractal que ajuda mes endevant
+a donar mes complexitat a les textures del planeta afegint
+realisme. </p>
+
+<p>Parametres:</p>
+
+<blockquote>
+    <p>en quant al fractal</p>
+</blockquote>
+
+<ul>
+    <li>Dimensio fractal: complexitat de la fractalitzacio que es
+        vol generar, normalment contra mes elevat mes complexa
+        sera l'objecte definitiu, es recomana que estigui entre 0.3
+        i 0.4. </li>
+    <li>Llavor: la llavor de fractalitzacio, cada llavor dona un
+        resultat unic, dos llavors iguals tenen que replicar el
+        resultat a la mateixa dimensio fractal, i dos llavors
+        diferents tenen que extreure diferens. Es un numero enter
+        entre 1 i 65000 (o sigui com a minim 65000 opcions
+        diferents).</li>
+    <li>Epsilon: epsilon es el tamany minim que volem de cada
+        aresta. En principi tot objecte fractal te una resolucio
+        infinita, epsilon permet especificar un punt de parada.
+        Contra mes petita sigui epsilon mes resolucio tindra,
+        pero mes lent anira. Cal dir que l'epsilon minima es 0.1
+        i que la mateixa epsilon pot donar un objecte amb mes
+        resolucio si l'objecte original es mes gran (de forma
+        mitja cada vegada que l'objecte te doble de radi, te 4
+        vegades mes resolucio).</li>
+</ul>
+
+<blockquote>
+    <p>en quant a la textura</p>
+</blockquote>
+
+<ul>
+    <li>Dimensio fractal: dimensio fractal de la texutra, al
+        voltant de 1.2 ja esta be.</li>
+    <li>Llavor: llavor per la textura, cambiantla es pot
+        aconseguir canvis en les textures dels planetes.</li>
+</ul>
+
+<p>Aquets es el filtre mes important per a la generacio de mons
+fractals. Pero tan important com aquest es la correcta combinacio
+amb els altres filtres i els paramtres d'ambdos. Si un cop fet un
+objecte es vol afegir una lleugera complexitat no hi ha res que
+eviti tornar a fractalitzar amb un grau mes baix per afegir una
+petita fractalitzacio. </p>
+
+<p>Dos filtres de fractalitzacio seguits no serveixen de res si
+el segon te una epsilon superior al del primer. En qualsevol
+altre cas serveix per produir majors irregularitats menors.</p>
+
+<p>Aquest filtre es radial produeix elevacions i enfonsaments
+dels objectes, pero tot moviment es fa sempre al voltant del
+centre de coordenades. Si es vol que tots els &quot;bonys&quot;
+tinguin nomes direccio, per exemple, en l'eix Y, es pot
+traslladar (afegir el filtre de traslació) cap amint (aumentar
+eix Y) aplicar el filtre de fractalitzacio i tornarlo a deixar on
+estaba amb la traslacio inversa.</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltreMar"></a>Mar</h3>
+
+<p>Crea el mar (o similar) s'obre l'objecte. L'objecte resultant
+no tindra cap vertex per sota de radi minim (d'aquesta manera es
+crea el nivell del mar), i tot el que hi hagi per sota sera
+colorejat. El color depen dels parametres, pero tambe del tipus
+superficie, segons aquest es combina els dos parametres (interpolant)
+per anar creant diferents colors.</p>
+
+<p>Parametres:</p>
+
+<ul>
+    <li>radi minim: radi que correspon a nivell del mar.</li>
+    <li>color 1: descripcio en rgb (vermell verd i blau) d'un
+        dels dos colors que conformara el mar.</li>
+    <li>color 2: descripcio en rgb del segn color que conformara
+        el mar.</li>
+</ul>
+
+<p>Es recomana que el mar estigui lleugerament per sota del radi
+inicial de l'objecte. Tot i aixi no nomes pot servir per crear el
+mar. Per exemple es pot fer un planeta similar a mart amb la
+correcta combinacio de vermell i carbasa i una lleugera
+fractalitzacio posterior.</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltreRadiMinim"></a>RadiMinim</h3>
+
+<p>Filtre que aplica un radi minim. No permet que hi hagi cap
+vertex de l'objecte a menys distancia de la demanada, de ser
+aixi, l'apuja.</p>
+
+<p>Parametres:</p>
+
+<ul>
+    <li>radi minim: distancia minima a l'origen de coordenades de
+        qualsevol vertex.</li>
+</ul>
+
+<p>El radi minim pot ser util quan es vol fer una mena de mar,
+pero sense aplicar canvi de colors.</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltreRadiMaxim"></a>RadiMaxim</h3>
+
+<p>Filtre que aplica un radi maxim. No permet cap vertex de
+l'objecte a mes distancia del centre que l'especificada, si son
+mes lluny, s'apropa.</p>
+
+<p>Parametres:</p>
+
+<ul>
+    <li>radi maxim: distancia maxima a l'origen de coordenades de
+        qualsevol vertex.</li>
+</ul>
+
+<p>El radi maxim es util per la generacio de planetes com la
+terra amb nuvols junt al filtre de temperaturas molt ben
+controlat i posar grisos segons temperatura. Tambe es util per
+generar mesetas a una determinada alçada, i despres d'aplicar es
+pot tornar a fractalitzar per afegir una lleugera complexitat a
+la meseta.</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltreTexturaAleatoria"></a>TexturaAleatoria</h3>
+
+<p>Aplica colors i tipus de superficie aleatoris a l'objecte.
+Aquest es molt important per la texturitzacio ja que genera el
+tipus superficie aleatori, pero per donar resultats realistes es
+adient que s'apliqui abans de generar la fractalitacio que
+construeixi major part de l'objecte.</p>
+
+<p>Parametres:</p>
+
+<ul>
+    <li>llavor: llavor per a la generacio de la textura
+        aleatoria, canviant la llavor, canviara la coloracio.</li>
+</ul>
+
+<p>Es esencial canviar el tipus superficie dels objectes quan
+s'ha creat, si es vol gran complexitat en les texutres, llavors
+hi haura que primer fractalitzar poc, aplicar el textura
+aleatoria i despres tornar a fractalitzar.</p>
+
+<p><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></p>
+
+<h3><a name="FiltreTexturaTemperatura"></a>TexturaTemperatura</h3>
+
+<p>Posa les textures de l'objecte segons les seves tempertures.
+La textura aplicada variara segons el tipus superficie, aixi que
+alhora tindra lleus irregularitats segons el aquest mateix.</p>
+
+<p>Posar la textura temperatura es esencial per la generacio de
+planetes estandards. Cal avisar que reemplaca tots els colors
+existents pels corresponents a la temperatura, amb el que es
+preferible que la creacio del mar sigui posterior a aquest filtre.</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltrePosarTemperatura"></a>PosarTemperatura</h3>
+
+<p>Asigna a la textura les temperatures corresponents a cada punt.
+La temperatura s'asigna segons la alcada i la latitut. Un cop
+asignada podrea ser utilitzada per posar temperatura.</p>
+
+<p>Parametres:</p>
+
+<ul>
+    <li>temperatura cim equador: temperatura del cim mes alt si
+        estigues a l'equador.</li>
+    <li>temperatura mar equador: temperatura corresponent a
+        l'alcada del mar (o de l'alçada minima del planeta) en
+        l'equador.</li>
+    <li>temperatura mar pol: temperatura corresponent a l'alcada
+        de mar (o de l'alçada minima del planeta) en el pol.</li>
+</ul>
+
+<p>Per posar les temperatures seria molt util aplicar abans radi
+minim per obtenir el nivell del mar desitjat. Tambe cal dir que
+estan en graus kelvin (on 273 es la congelacio de l'aigua i 373
+on bull). Sengons les temperatures les textures sera unes o unes
+altres, les aptes per la vida vegetal tipica ronden entre 273 i
+330.</p>
+
+<p>Cal avisarque si la temperatura en un cim a l'alcada de
+l'equador es fret, encara ho sera molt mes a l'alcada del pol. Al
+asignar les temperatures tambe varien lleugerament depenent de
+tipus superficie.</p>
+
+<p>No hi ha res que impedeixi que als pols faci mes calor que al
+equador, o que al cim faci mes calor que a l'alcada del mar.</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltreTraslacio"></a>Traslacio</h3>
+
+<p>Trasllada l'escena generada fins ara de posicio.</p>
+
+<p>Parametres:</p>
+
+<ul>
+    <li>&lt;x, y, z&gt; coordenades on es situara el centre de
+        l'anterior escena.</li>
+</ul>
+
+<p>Traslladar es especialment util per fer canvis en els
+resultats de fractalitzacio i al agrupar altres objectes a
+l'escena.</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltrePosarGrisosTemperatura"></a>PosarGrisosTemperatura</h3>
+
+<p>Posa tons de gris de color depenent de les temperatures
+existents. per 0 graus Kelvin tenim el blanc, per 255 graus
+Kelvin tnim el negre. Entre aquests dos tenim una gradacio
+uniforme.</p>
+
+<p>Aquest filtre es util per comprobar que s'han colocat be les
+temperatura (si es desplacan entre els 0 i 255 graus), pero esta
+especialment pensat per a la generacio de nuvols amb la
+combinacio del mar i radi maxim. </p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltrePosarGrisosTipusSuperficie"></a>PosarGrisosTipusSuperficie</h3>
+
+<p>Posa tons de gris per color depenent del tipus superficie.</p>
+
+<p>Aquest filtre es util per saber els tipus de superficie
+colocats (d'aquesta manera es pot saber els tons del mar o canvis
+de texutres) pero esta esecialment pensat per a la generacio de <em>llunes</em>
+com la nostra (pero sense craters, per manca de temps no tenim el
+filtre de fractalitzar amb craters).</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+
+<h3><a name="FiltreAfegirAnells"></a>AfegirAnells</h3>
+
+<p>Afegeix un anell al planeta. L'anell es de fet una aproximació
+d'un disc pero amb volum. L'anell esta en el pla X amb centre
+l'eix de coordenades.</p>
+
+<p>Parametres:</p>
+
+<ul>
+    <li>color: color en rgb (vermell, verd i blau) de l'anell.</li>
+    <li>divisions: numero de trams amb el que esta fet l'anell al
+        voltant de l'eix X.</li>
+    <li>amplada: amplada de l'anell, es a dir, gruix vist desde
+        adalt de la porcio d'anell.</li>
+    <li>distancia: distancia de l'anell al planeta (o objecte de
+        l'escena, si no hi ha objecte suposa que hi ha un de radi
+        1).</li>
+    <li>gruix de l'anell: gruix de l'anell en l'eix Y. Normalment
+        el gruix dels anells no infims comparat al planeta.</li>
+</ul>
+
+<p>Normalment cap planeta te una lluna a 2.5 vegades el seu radi,
+ja que les atraccions gravitatories mutues acabant destrossant la
+lluna i aquesta acaba fent un anell. </p>
+
+<p>Amb l'anell es pot fer un pseudodisc de radi -1.0 si no hi ha
+cap objecte.</p>
+
+<h3><a href="#DescripcioFiltres"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></h3>
+</body>
+</html>

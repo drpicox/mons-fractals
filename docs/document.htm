@@ -1,0 +1,155 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Documentació tècnica</title>
+</head>
+
+<body background="estrellas.jpg" bgcolor="#000000" text="#C0C0C0"
+link="#FF0000" vlink="#FF00FF" alink="#00FF00">
+
+<h1 align="center"><a name="Inici"></a>Pràctica d'MGC</h1>
+
+<h1 align="center">Documentació tècnica</h1>
+
+<ul>
+    <li><h2><a href="#Funcionalitats">Funcionalitats</a></h2>
+    </li>
+    <li><h2><a href="#Arquitectura">Arquitectura de l'aplicació</a></h2>
+    </li>
+    <li><h2><a href="#ModelDades">Model de dades</a></h2>
+    </li>
+    <li><h2><a href="#ProcesFractalitzacio">Procés de
+        fractalització</a></h2>
+    </li>
+</ul>
+
+<p align="right"><a href="index2.html"><img src="home01.gif"
+border="0" width="40" height="40"></a></p>
+
+<hr>
+
+<h2><a name="Funcionalitats"></a>Funcionalitats</h2>
+
+<p>El sistema presentat te com a finalitat la generació d'un
+objcte amb aparença de planeta de forma fractal. Per a fer això
+es parteix d'unes primitives bàsiques i es sotmeten a una serie
+de tractaments que mica a mica li van donant forma.</p>
+
+<p>A més de la generació de la superficie del planeta, també
+hem afegit la funcionalitat de afegir-li un mar a aquest planeta,
+afegir anells al seu voltant, posar-hi satel·lits... i tot això
+amb una interficie gràfica prou senzilla d'utilitzar.</p>
+
+<p>Els resultats es poden exportar en diversos formats grafics.
+Els dos implementats son el <a href="http://www.web3D.org">VRML</a>
+i el BDG, però no seria gens dificil estendre aquesta
+funcionalitat per afegir nous formats. De fet el sistema es molt
+facilment extensible, gracies a la filosofia que segueix per a
+implementar totes les seves funcionalitats.</p>
+
+<p align="right"><a href="#Inici"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></p>
+
+<hr>
+
+<h2><a name="Arquitectura"></a>Arquitectura de l'aplicació</h2>
+
+<p>L'aplicació està dividida en dos parts:</p>
+
+<ul>
+    <li>Interficie gràfica</li>
+    <li>Processament gràfic</li>
+</ul>
+
+<p>La interficie gràfica es la que s'encarrega de permetre la
+interacció amb l'usuari. Està formada per la finestra
+principal, una <a href="manualde.htm#LlistaFiltres">llista de
+filtres</a> i una botonera. Mitjançant la botonera es manipulen
+els filtres, i quan es selecciona un filtre apareixen els seus
+paràmetres a la banda dreta de la finestra. Cadacun d'aquests
+filtres es correspon amb un paquet format per tres classes Java:
+el filtre en si, la classe que representa els parametres per
+aquest filtre i la classe grafica que permet introduïr aquests
+paràmetres.</p>
+
+<p>Quan l'usuari decideix regenerar l'objecte representat, la
+interficie gràfica activa el motor de processament gràfic.
+Aquest motor s'encarrega d'anar aplicant els filtres seleccionats
+per l'usuari, l'un darrera l'altre, fins acabar amb la generació
+de l'objecte.</p>
+
+<p>Per a fer això, el sistema recupera els filtres que l'usuari
+havia definit a la llista de filtres amb els seus paràmetres
+corresponents i els executa seqüencialment. Cada filtre és
+independent dels altres i es poden aplicar tots en qualsevol
+ordre, obtenint, això si, resultats diferents en funció de
+l'ordre usat.</p>
+
+<p align="right"><a href="#Inici"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></p>
+
+<hr>
+
+<h2><a name="ModelDades"></a>Model de dades</h2>
+
+<p>El model de dades utilitzat en l'aplicació es bastant similar
+a l'utilitzat al laboratori, però mantenint únicament les
+relacions estrictament necessaries.</p>
+
+<p>Tenim classes que representen un punt a l'espai, un vertex,
+una aresta, un triangle i un objecte:</p>
+
+<ul>
+    <li>L'objecte manté referencies a tots els vertexs, arestes
+        i triangles que el comformes, i també conté una textura
+        general de l'objecte.</li>
+    <li>Un triangle esta format per les seves tres arestes i una
+        referencia a l'objecte al qual pertany.</li>
+    <li>Una aresta pels seus dos vertexs, i per referencies als
+        dos triangles que delimiten amb ella i a l'objecte en el
+        que està contingut.</li>
+    <li>Un vertex està format pel punt on està situat a l'espai
+        i la textura corresponent a aquest vertex.</li>
+    <li>Finalment un punt està format per tres reals que
+        indiquen el punt real a l'espai.</li>
+</ul>
+
+<p>Amb totes aquestes dades i relacions som capaços de fer els
+calculs que necessitem. En alguna d'aquestes classes hi podem
+trobat variables auxiliars que ens ajuden a fer alguns calculs,
+però que realment no formen part de la representació.</p>
+
+<p align="right"><a href="#Inici"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></p>
+
+<hr>
+
+<h2><a name="ProcesFractalitzacio"></a>Procés de fractalització</h2>
+
+<p>El procés de fractalització és un bucle molt senzill:</p>
+
+<ol>
+    <li>Si hi ha arestes més llargues del que desitja l'usuari
+        les recuperem</li>
+    <li>Per cadascuna d'aquestes arestes seleccionem un punt
+        intermig i creem un nou vertex desplaçat una distancia
+        aleatoria de la seva posicio inicial en sentit radial.</li>
+    <li>Es parteix l'aresta en dos noves arestes i els triangles
+        adjacents i s'en creen de nous per a formar un objecte vàlid.</li>
+    <li>Tornem al primer punt</li>
+</ol>
+
+<p>Quan el procés arriba a la fi, totes les arestes són més
+petites d'un determinat valor.</p>
+
+<p>En el calcul de les noves arestes i triangles les textures
+s'interpolen per a que les transicions de color entre els
+diversos vertexs siguin suaus.</p>
+
+<p align="right"><a href="#Inici"><img src="flecha02.gif"
+border="0" width="19" height="13"></a></p>
+</body>
+</html>
