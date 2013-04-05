@@ -59,7 +59,7 @@ public class ObjecteEsfera extends CreadorObjecte
 	
 	vArestes = new Vector ( );
 	
-	/* Generació dels vertexs de l'esfera */
+	/* Generacio dels vertexs de l'esfera */
 	for ( beta = ( -Math.PI / 2 ) + dBeta, i = 0; i < divisionsLatitut - 1; beta += dBeta, i++ ) {
 	  for ( alfa = 0, j = 0; j < divisionsLongitut; alfa += dAlfa, j++ ) {
 		vVert[i][j] = new Vertex ( obj, 
@@ -76,7 +76,7 @@ public class ObjecteEsfera extends CreadorObjecte
 	  vVert[i][divisionsLongitut] = vVert[i][0];
 	}
 	
-	/* Generació dels triangles de l'esfera sense les tapes */
+	/* Generacio dels triangles de l'esfera sense les tapes */
 	for ( i = 0; i < divisionsLatitut - 2; i++ ) {
 	  for ( j = 0; j < divisionsLongitut; j++ ) {
 		new Triangle ( obj,
@@ -95,7 +95,7 @@ public class ObjecteEsfera extends CreadorObjecte
 	  }
 	}
 
-	/* Generació de les tapes superior i inferior */
+	/* Generacio de les tapes superior i inferior */
 	vSuperior = new Vertex ( obj, new Pt3D ( 0,  radi, 0 ) );
 	textura = new Textura ( );
 	textura.setTipusSuperficie ( Math.random ( ) );

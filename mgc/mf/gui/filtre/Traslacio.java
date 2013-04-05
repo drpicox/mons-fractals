@@ -59,17 +59,17 @@ extends Nul
         return ivjTxZ;
     }
 
-    private double getX()
+    private double get_X()
     {
         return toDouble(getTxX().getText());
     }
 
-    private double getY()
+    private double get_Y()
     {
         return toDouble(getTxY().getText());
     }
 
-    private double getZ()
+    private double get_Z()
     {
         return toDouble(getTxZ().getText());
     }
@@ -96,8 +96,8 @@ extends Nul
         ParametresTraslacio prm;
 
         prm = (ParametresTraslacio)parametres;
-        prm.setX(getX());
-        prm.setY(getY());
-        prm.setZ(getZ());
+        prm.setX(get_X());
+        prm.setY(get_Y());
+        prm.setZ(get_Z());
 	}
 }

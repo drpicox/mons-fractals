@@ -35,7 +35,7 @@ class Sistema
 	}
 	public static void sHandleException(Throwable th)
 	{
-		defecte.handleException(th);
+	    sGetDefecte().handleException(th);
 	}
 	public static void sPrint(String text)
 	{
