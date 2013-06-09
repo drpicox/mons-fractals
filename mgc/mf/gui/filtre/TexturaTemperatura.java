@@ -7,7 +7,7 @@ import mgc.mf.filtre.ParametresTexturaTemperatura;
 
 public
 class TexturaTemperatura
-extends Nul
+extends FiltreNul
 {
 	/**
 	 * PnlNul constructor comment.

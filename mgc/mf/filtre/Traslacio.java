@@ -12,7 +12,7 @@ import mgc.mf.Objecte;
  */
 public
 class Traslacio
-extends Nul
+extends FiltreNul
 {
 
     public Traslacio()

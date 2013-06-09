@@ -1,13 +1,13 @@
 package mgc.mf.gui.filtre;
 
-import java.awt.*;
 import mgc.mf.gui.*;
 import mgc.mf.*;
+import mgc.mf.filtre.FiltreNul;
 import mgc.mf.filtre.ParametresAgrupar;
 
 public
 class Agrupar
-extends Nul
+extends FiltreNul
 {
     private FinestraPrincipal finestraPrincipal;
 

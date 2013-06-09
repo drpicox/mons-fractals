@@ -10,7 +10,7 @@ import mgc.mf.*;
 public
 abstract
 class Fractal 
-extends Nul 
+extends FiltreNul
 {
     /**
      * AlgorismeFractal constructor comment.

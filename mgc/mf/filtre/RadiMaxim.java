@@ -12,7 +12,7 @@ import mgc.mf.Objecte;
  */
 public
 class RadiMaxim
-extends Nul
+extends FiltreNul
 {
 
     public RadiMaxim()

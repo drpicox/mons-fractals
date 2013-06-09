@@ -12,7 +12,7 @@ import mgc.mf.Objecte;
  */
 public
 class Agrupar
-extends Nul
+extends FiltreNul
 {
     private transient RnbGenerarObjecte rnb;
     

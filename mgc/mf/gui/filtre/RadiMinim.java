@@ -1,13 +1,12 @@
 package mgc.mf.gui.filtre;
 
 import java.awt.*;
-import mgc.mf.gui.*;
 import mgc.mf.*;
 import mgc.mf.filtre.ParametresRadiMinim;
 
 public
 class RadiMinim
-extends Nul
+extends FiltreNul
 {
     TextField ivjTxRadiMinim;
 

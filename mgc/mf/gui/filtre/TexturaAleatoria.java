@@ -7,7 +7,7 @@ import mgc.mf.filtre.ParametresTexturaAleatoria;
 
 public
 class TexturaAleatoria
-extends Nul
+extends FiltreNul
 {
     TextField ivjTxSeed;
 

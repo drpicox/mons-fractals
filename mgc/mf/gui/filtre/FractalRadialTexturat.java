@@ -40,7 +40,7 @@ public double getDimensioFractalTextura()
 	double ret;
 
 	str = getTxDimensioFractalTextura().getText();
-	ret = toDouble(str);
+	ret = Double.parseDouble(str);
 	
 	return ret;
 }
@@ -53,7 +53,7 @@ public int getSeedTextura()
 	int ret;
 
 	str = getTxSeedTextura().getText();
-	ret = toInt(str);
+	ret = Integer.parseInt(str);
 	
 	return ret;
 }
@@ -97,9 +97,9 @@ public int getSeedTextura()
 		dimensioFractal = pfpt.getDimensioFractalTextura();
 		seed = pfpt.getSeedTextura();
 
-		getTxSeedTextura().setText(toString(seed));
+		getTxSeedTextura().setText(Double.toString(seed));
 		getTxDimensioFractalTextura().setText
-			(toString(dimensioFractal));
+			(Double.toString(dimensioFractal));
 	}
 	protected void omplirParametres(ParametresFiltre parametres)
 	{

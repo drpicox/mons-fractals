@@ -5,7 +5,7 @@ import mgc.mf.gui.*;
 import mgc.mf.*;
 import mgc.mf.filtre.ParametresObjecteIcosaedre;
 
-public class ObjecteIcosaedre extends Nul
+public class ObjecteIcosaedre extends FiltreNul
 {
     TextField ivjTxRadi;
 

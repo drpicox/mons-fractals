@@ -7,7 +7,7 @@ import mgc.mf.filtre.ParametresRadiMaxim;
 
 public
 class RadiMaxim
-extends Nul
+extends FiltreNul
 {
     TextField ivjTxRadiMaxim;
 

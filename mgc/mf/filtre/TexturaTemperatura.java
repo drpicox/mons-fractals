@@ -12,7 +12,7 @@ import mgc.mf.*;
  */
 public
 class TexturaTemperatura
-extends Nul
+extends FiltreNul
 {
 
   private static final Color glac = new Color ( 217, 249, 255 );

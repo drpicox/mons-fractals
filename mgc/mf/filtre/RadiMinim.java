@@ -12,7 +12,7 @@ import mgc.mf.Objecte;
  */
 public
 class RadiMinim
-extends Nul
+extends FiltreNul
 {
 
     public RadiMinim()

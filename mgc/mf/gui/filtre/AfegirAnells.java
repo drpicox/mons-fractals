@@ -1,13 +1,12 @@
 package mgc.mf.gui.filtre;
 
 import java.awt.*;
-import mgc.mf.gui.*;
 import mgc.mf.*;
 import mgc.mf.filtre.ParametresAfegirAnells;
 
 public
 class AfegirAnells
-extends Nul
+extends FiltreNul
 {
     TextField ivjTxColorR;
     TextField ivjTxColorG;
@@ -107,37 +106,37 @@ extends Nul
 
     private double getAmplada()
     {
-        return toDouble(getTxAmplada().getText());
+        return Double.parseDouble(getTxAmplada().getText());
     }
 
     private double getDistancia()
     {
-        return toDouble(getTxDistancia().getText());
+        return Double.parseDouble(getTxDistancia().getText());
     }
 
     private double getGruix()
     {
-        return toDouble(getTxGruix().getText());
+        return Double.parseDouble(getTxGruix().getText());
     }
 
     private int getColorR()
     {
-        return toInt(getTxColorR().getText());
+        return Integer.parseInt(getTxColorR().getText());
     }
 
     private int getColorG()
     {
-        return toInt(getTxColorG().getText());
+        return Integer.parseInt(getTxColorG().getText());
     }
 
     private int getColorB()
     {
-        return toInt(getTxColorB().getText());
+        return Integer.parseInt(getTxColorB().getText());
     }
 
     private int getDivisions()
     {
-        return toInt(getTxDivisions().getText());
+        return Integer.parseInt(getTxDivisions().getText());
     }
 
     private void initialize()

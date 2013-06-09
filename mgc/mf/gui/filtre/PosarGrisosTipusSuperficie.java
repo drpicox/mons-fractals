@@ -7,7 +7,7 @@ import mgc.mf.filtre.ParametresObjecteEsfera;
 
 public
 class PosarGrisosTipusSuperficie
-extends Nul
+extends FiltreNul
 {
     public PosarGrisosTipusSuperficie()
     { super(); } 

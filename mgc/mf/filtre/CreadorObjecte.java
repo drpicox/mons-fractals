@@ -8,7 +8,7 @@ import mgc.mf.*;
 public
 abstract
 class CreadorObjecte
-extends Nul
+extends FiltreNul
 {
     public CreadorObjecte()
     { super(); }

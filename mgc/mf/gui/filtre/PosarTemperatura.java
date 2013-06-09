@@ -7,7 +7,7 @@ import mgc.mf.filtre.ParametresPosarTemperatura;
 
 public
 class PosarTemperatura
-extends Nul
+extends FiltreNul
 {
     TextField ivjTxTemperaturaCim;
     TextField ivjTxTemperaturaEquador;

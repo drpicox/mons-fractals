@@ -7,7 +7,7 @@ import mgc.mf.filtre.ParametresObjecteEsfera;
 
 public
 class ObjecteEsfera
-extends Nul
+extends FiltreNul
 {
     TextField ivjTxRadi;
     TextField ivjTxDivisionsLongitut;

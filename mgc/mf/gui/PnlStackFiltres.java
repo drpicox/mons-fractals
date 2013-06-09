@@ -869,10 +869,10 @@ extends Panel
 		ParametresFiltre parametres;
 		List llista;
 
-		filtre = new Nul();
+		filtre = new FiltreNul();
 		parametres = new ParametresNul();
 		parametres.setNomFiltre("Objecte Buit");
-		parametres.setTipusFiltre("Nul");
+		parametres.setTipusFiltre("FiltreNul");
 		filtre.setParametresFiltre(parametres);
 
 		llista = getLsFiltres();

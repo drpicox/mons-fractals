@@ -13,7 +13,7 @@ import mgc.mf.filtre.*;
  */
 public 
 class PnlFractalitzacio
-extends Nul
+extends FiltreNul
 {
 	private static java.util.ResourceBundle resGUI = java.util.ResourceBundle.getBundle("GUI"); //$NON-NLS-1$;
 	private TextField ivjTxDimensioFractal = null;
@@ -41,7 +41,7 @@ public double getDimensioFractal()
 	double ret;
 
 	str = getTxDimensioFractal().getText();
-	ret = toDouble(str);
+	ret = Double.parseDouble(str);
 	
 	return ret;
 }
@@ -54,7 +54,7 @@ public double getEpsilon()
 	double ret;
 
 	str = getTxEpsilon().getText();
-	ret = toDouble(str);
+	ret = Double.parseDouble(str);
 	
 	return ret;
 }
@@ -67,7 +67,7 @@ public int getSeed()
 	int ret;
 
 	str = getTxSeed().getText();
-	ret = toInt(str);
+	ret = Integer.parseInt(str);
 	
 	return ret;
 }

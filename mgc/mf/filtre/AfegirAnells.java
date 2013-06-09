@@ -3,7 +3,7 @@ package mgc.mf.filtre;
 import java.awt.Color;
 import mgc.mf.*;
 
-public class AfegirAnells extends Nul
+public class AfegirAnells extends FiltreNul
 {
    public Objecte filtrar(Objecte obj)
    {

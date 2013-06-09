@@ -12,7 +12,7 @@ import mgc.mf.*;
  */
 public
 class TexturaAleatoria
-extends Nul
+extends FiltreNul
 {
   private transient Random random;
 

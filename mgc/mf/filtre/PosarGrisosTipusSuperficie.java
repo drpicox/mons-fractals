@@ -12,7 +12,7 @@ import mgc.mf.*;
  */
 public
 class PosarGrisosTipusSuperficie
-extends Nul
+extends FiltreNul
 {
   public PosarGrisosTipusSuperficie()
   {

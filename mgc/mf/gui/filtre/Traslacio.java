@@ -7,7 +7,7 @@ import mgc.mf.filtre.ParametresTraslacio;
 
 public
 class Traslacio
-extends Nul
+extends FiltreNul
 {
     TextField ivjTxX;
     TextField ivjTxY;

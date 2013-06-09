@@ -7,7 +7,7 @@ import mgc.mf.*;
 
 public
 class PosarGrisosTemperatura
-extends Nul
+extends FiltreNul
 {
     public PosarGrisosTemperatura()
     { super(); } 

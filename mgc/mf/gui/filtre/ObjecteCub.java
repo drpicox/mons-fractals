@@ -7,7 +7,7 @@ import mgc.mf.filtre.ParametresObjecteEsfera;
 
 public
 class ObjecteCub
-extends Nul
+extends FiltreNul
 {
     public ObjecteCub()
     { super(); } 
