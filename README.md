@@ -2,5 +2,5 @@
 
 Aviable at:
 
-[drpicox.github.io/mons-fractals](http://drpicox.github.io/mons-fractaks)
+[drpicox.github.io/mons-fractals](http://drpicox.github.io/mons-fractals)
 
