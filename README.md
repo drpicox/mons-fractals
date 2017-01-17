@@ -6,8 +6,6 @@ Mons Fractals v1.1
 This repository contains one project 
 built as students of the Informatics Engineering Degree.
 
-* replaced by toc
-{:toc}
 
 Authors
 -------
